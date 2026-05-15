@@ -1,0 +1,454 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled, input:disabled, select:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.shell {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-end;
+  background: white;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 1px 10px rgba(15, 23, 42, 0.06);
+}
+
+.badge {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 14px;
+}
+
+h1 {
+  margin: 14px 0 8px;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1;
+}
+
+h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+p {
+  margin: 0;
+  color: #475569;
+  max-width: 760px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.year-control,
+.password-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f1f5f9;
+  border-radius: 18px;
+  padding: 8px 12px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.year-control input,
+.password-box input {
+  width: 110px;
+}
+
+input, select {
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 9px 10px;
+  background: white;
+  color: #0f172a;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.25);
+}
+
+.btn {
+  min-height: 38px;
+  border: 0;
+  border-radius: 14px;
+  padding: 8px 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-weight: 700;
+}
+
+.btn-primary {
+  background: #0f172a;
+  color: white;
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.btn-outline {
+  background: white;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #0f172a;
+}
+
+.green {
+  color: #059669;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.card {
+  background: white;
+  border-radius: 28px;
+  padding: 20px;
+  box-shadow: 0 1px 10px rgba(15, 23, 42, 0.06);
+}
+
+.stats .card span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.stats .card strong {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 38px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 22px;
+  align-items: start;
+}
+
+.table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 1500px;
+  width: 100%;
+  font-size: 14px;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #0f172a;
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+td input, td select {
+  width: 100%;
+  min-width: 105px;
+}
+
+tbody tr {
+  background: white;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+tbody tr.selected {
+  outline: 2px solid #cbd5e1;
+  outline-offset: -2px;
+}
+
+.number {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.month-cell {
+  border-left: 1px solid #e2e8f0;
+  min-width: 150px;
+}
+
+.empty-month {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #cbd5e1;
+}
+
+.empty-month button,
+.add-interval {
+  border: 0;
+  background: transparent;
+  color: #94a3b8;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.empty-month button:hover,
+.add-interval:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.vacation-pill {
+  border-radius: 12px;
+  padding: 5px 8px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.vacation-pill.plan {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.vacation-pill.fact {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.add-interval {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+aside {
+  display: grid;
+  gap: 16px;
+}
+
+.muted {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.selected-person,
+.muted-box {
+  background: #f1f5f9;
+  border-radius: 18px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.selected-person span,
+.selected-person small {
+  display: block;
+  color: #64748b;
+}
+
+.selected-person strong {
+  display: block;
+  font-size: 20px;
+}
+
+.vacation-list {
+  display: grid;
+  gap: 10px;
+}
+
+.vacation-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.vacation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.vacation-grid label {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.vacation-grid input {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.hint, .error {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.hint {
+  color: #64748b;
+}
+
+.error {
+  color: #dc2626;
+}
+
+.directory {
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.directory-title {
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.inline-form {
+  display: flex;
+  gap: 8px;
+}
+
+.inline-form input {
+  min-width: 0;
+  flex: 1;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  padding: 5px 9px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.chip button {
+  border: 0;
+  background: transparent;
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 2px;
+}
+
+.chip button:hover {
+  background: #e2e8f0;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .toolbar {
+    justify-content: flex-start;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 12px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .vacation-grid {
+    grid-template-columns: 1fr;
+  }
+}
